@@ -23,15 +23,15 @@ __license__ = "AGPLv3"
 
 from circuits import handler, Event
 
-from hfos.component import ConfigurableComponent
-from hfos.ui.auth import add_auth_hook
-from hfos.logger import hfoslog, debug, warn, critical, error
+from isomer.component import ConfigurableComponent
+from isomer.ui.auth import add_auth_hook
+from isomer.logger import isolog, debug, warn, critical, error
 
 try:
     import ldap
 except ImportError:
     ldap = None
-    hfoslog("No python-ldap library found, install "
+    isolog("No python-ldap library found, install "
             "requirements-optional.txt", lvl=warn, emitter="LDAP")
 
 cbaseldap = {
