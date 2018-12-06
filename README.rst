@@ -2,7 +2,7 @@ Warning
 =======
 
 This module requires an installed libldap.so and is currently not fully
-suited for ordinary LDAP operation since it is a prototype to connect HFOS' authentication
+suited for ordinary LDAP operation since it is a prototype to connect Isomer' authentication
 module with c-base' uid/pin LDAP service.
 
 On Debian you can just do:
