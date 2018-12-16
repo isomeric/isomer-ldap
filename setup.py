@@ -23,30 +23,31 @@ __license__ = "AGPLv3"
 
 from setuptools import setup, find_packages
 
-setup(name="isomer-LDAP",
-      version="0.0.1",
-      description="isomer-LDAP",
-      author="Isomer Community",
-      author_email="riot@c-base.org",
-      url="https://github.com/isomeric/isomer-LDAP",
-      license="GNU Affero General Public License v3",
-      packages=find_packages(),
-      long_description="""Isomer - LDAP
+setup(
+    name="isomer-LDAP",
+    version="0.0.1",
+    description="isomer-LDAP",
+    author="Isomer Community",
+    author_email="riot@c-base.org",
+    url="https://github.com/isomeric/isomer-LDAP",
+    license="GNU Affero General Public License v3",
+    packages=find_packages(),
+    long_description="""Isomer - LDAP
 =============
 
-A LDAP authentication protocol adaptor.
+LDAP authentication protocol adaptor.
 
 This software package is a plugin module for Isomer.
 """,
-      dependency_links=[
-          'https://github.com/jaseg/python-lmap/tarball/master#egg=lmap'
-      ],
-      install_requires=[
-          'isomer>=1.0.0',
-          'lmap'
-      ],
-      entry_points="""[isomer.components]
+    dependency_links=[
+        'https://github.com/jaseg/python-lmap/tarball/master#egg=lmap'
+    ],
+    install_requires=[
+        'isomer>=1.0.0',
+        'lmap'
+    ],
+    entry_points="""[isomer.components]
     ldap=isomer.ldap.ldap:LDAPAdaptor
     """,
-      test_suite="tests.main.main",
-      )
+    test_suite="tests.main.main",
+)
