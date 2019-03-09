@@ -1,4 +1,5 @@
-.gitignore# build data
+# build data
+MANIFEST.in
 build
 dist
 docs/build
