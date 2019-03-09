@@ -3,7 +3,7 @@
 
 # Isomer Application Framework
 # ============================
-# Copyright (C) 2011-2018 Heiko 'riot' Weinen <riot@c-base.org> and others.
+# Copyright (C) 2011-2019 Heiko 'riot' Weinen <riot@c-base.org> and others.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -32,7 +32,7 @@ try:
 except ImportError:
     ldap = None
     isolog("No python-ldap library found, install "
-            "requirements-optional.txt", lvl=warn, emitter="LDAP")
+           "requirements-optional.txt", lvl=warn, emitter="LDAP")
 
 cbaseldap = {
     'URI': 'ldap://127.0.0.1:389/',
@@ -70,20 +70,28 @@ class lmap_authenticate(Event):
 
 class LDAPAdaptor(ConfigurableComponent):
     configprops = {
-        'URI': {'type': 'string', 'title': 'URI',
-                'description': 'Uniform Resource Identifier (e.g. '
-                               'ldap://127.0.0.1:389/)',
-                'default': 'ldap://127.0.0.1:389/'},
-        'BASE': {'type': 'string', 'title': 'Base',
-                 'description': 'CN (e.g. dc=example,dc=org)',
-                 'default': 'dc=example,dc=org'},
-        'USERBASE': {'type': 'string', 'title': 'Userbase',
-                     'description': 'OU (e.g. ou=users)',
-                     'default': 'ou=users'},
-        'BINDDN': {'type': 'string', 'title': 'Bind Domain',
-                   'description': 'CN to bind (e.g. cn=password,ou=bind,'
-                                  'dc=example,dc=org)',
-                   'default': 'cn=password,ou=bind,dc=example,dc=org'},
+        'URI': {
+            'type': 'string', 'title': 'URI',
+            'description': 'Uniform Resource Identifier (e.g. '
+                           'ldap://127.0.0.1:389/)',
+            'default': 'ldap://127.0.0.1:389/'
+        },
+        'BASE': {
+            'type': 'string', 'title': 'Base',
+            'description': 'CN (e.g. dc=example,dc=org)',
+            'default': 'dc=example,dc=org'
+        },
+        'USERBASE': {
+            'type': 'string', 'title': 'Userbase',
+            'description': 'OU (e.g. ou=users)',
+            'default': 'ou=users'
+        },
+        'BINDDN': {
+            'type': 'string', 'title': 'Bind Domain',
+            'description': 'CN to bind (e.g. cn=password,ou=bind,'
+                           'dc=example,dc=org)',
+            'default': 'cn=password,ou=bind,dc=example,dc=org'
+        },
         'BINDPW': {
             'type': 'string', 'title': 'Bind Password',
             'description': 'Bind password', 'default': '',
@@ -91,21 +99,27 @@ class LDAPAdaptor(ConfigurableComponent):
                 'type': 'password'
             }
         },
-        'PINFIELD': {'type': 'string', 'title': 'Pin field',
-                     'description': 'Pin Field in LDAP',
-                     'default': 'pinfield'},
-        'UIDFIELD': {'type': 'string', 'title': 'UID field',
-                     'description': 'User ID field in LDAP', 'default': 'uid'},
-        'ACCESS_FILTER': {'type': 'string', 'title': 'Access Filter',
-                          'description': 'E.g. (&(uidNumber={})('
-                                         'memberof=cn=users,ou=groups,'
-                                         'dc=example,dc=org)('
-                                         'memberof=cn=otherusers,ou=groups,'
-                                         'dc=example,dc=org))',
-                          'default': '(&(uidNumber={})(memberof=cn=users,'
-                                     'ou=groups,dc=example,dc=org)('
-                                     'memberof=cn=otherusers,ou=groups,'
-                                     'dc=example,dc=org))'}
+        'PINFIELD': {
+            'type': 'string', 'title': 'Pin field',
+            'description': 'Pin Field in LDAP',
+            'default': 'pinfield'
+        },
+        'UIDFIELD': {
+            'type': 'string', 'title': 'UID field',
+            'description': 'User ID field in LDAP', 'default': 'uid'
+        },
+        'ACCESS_FILTER': {
+            'type': 'string', 'title': 'Access Filter',
+            'description': 'E.g. (&(uidNumber={})('
+                           'memberof=cn=users,ou=groups,'
+                           'dc=example,dc=org)('
+                           'memberof=cn=otherusers,ou=groups,'
+                           'dc=example,dc=org))',
+            'default': '(&(uidNumber={})(memberof=cn=users,'
+                       'ou=groups,dc=example,dc=org)('
+                       'memberof=cn=otherusers,ou=groups,'
+                       'dc=example,dc=org))'
+        }
     }
 
     def __init__(self, *args, **kwargs):
