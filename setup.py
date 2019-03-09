@@ -58,7 +58,7 @@ This software package is a plugin module for Isomer.
         'https://github.com/jaseg/python-lmap/tarball/master#egg=lmap'
     ],
     install_requires=[
-        'isomer>=1.0.0',
+        'isomer>=1.0',
         'lmap'
     ],
     entry_points="""[isomer.components]
